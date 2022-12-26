@@ -4,8 +4,13 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/Israel-Ferreira/canabrava-shop/cadastro-adegas/internal/config"
 	"github.com/Israel-Ferreira/canabrava-shop/cadastro-adegas/internal/routes"
 )
+
+func init() {
+	config.LoadEnv()
+}
 
 func main() {
 

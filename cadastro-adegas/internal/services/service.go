@@ -8,6 +8,21 @@ import (
 )
 
 func SaveAdegaAndSendToSQS(adegaReqBody requests.AdegaReq) error {
+	validationError := validateRequestBody(adegaReqBody)
+
+	if validationError != nil {
+		return validationError
+	}
+
+	return nil
+}
+
+func EmailIsValid(email string) bool {
+	_, err := mail.ParseAddress(email)
+	return err == nil
+}
+
+func validateRequestBody(adegaReqBody requests.AdegaReq) error {
 	if adegaReqBody.Cnpj == "" {
 		return exceptions.ErrCnpjBlank
 	}
@@ -24,13 +39,5 @@ func SaveAdegaAndSendToSQS(adegaReqBody requests.AdegaReq) error {
 		return exceptions.ErrEmailValidationFailed
 	}
 
-
-	
-
 	return nil
-}
-
-func EmailIsValid(email string) bool {
-	_, err := mail.ParseAddress(email)
-	return err == nil
 }
