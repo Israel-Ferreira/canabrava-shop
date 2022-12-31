@@ -14,6 +14,8 @@ func init() {
 
 func main() {
 
+	config.InitDb()
+
 	porta := ":8080"
 
 	router := routes.InitRoutes()

@@ -45,5 +45,4 @@ func SendMsgToSNS(msg responses.AdegaCreatedMsg) error {
 	}
 
 	return nil
-
 }

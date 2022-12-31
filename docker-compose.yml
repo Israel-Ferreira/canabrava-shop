@@ -10,6 +10,7 @@ services:
     environment:
       - POSTGRES_USER=canabrava-shop-adg
       - POSTGRES_PASSWORD=canabrava#adg
+      - POSTGRES_DB=cadastro-adegas
 
     networks:
       - canabrava-shop-net
@@ -24,6 +25,7 @@ services:
     environment:
       - POSTGRES_USER=canabrava-shop-produtos
       - POSTGRES_PASSWORD=canabrava#produtos
+      - POSTGRES_DB=produtos-db
 
     networks:
       - canabrava-shop-net

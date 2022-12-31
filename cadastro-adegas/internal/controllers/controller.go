@@ -24,8 +24,6 @@ func CadastrarAdega(rw http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-
-	
 	
 	rw.WriteHeader(http.StatusCreated)
 	
