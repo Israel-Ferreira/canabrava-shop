@@ -7,7 +7,7 @@ import (
 )
 
 type SqsConfig struct {
-	SqsQueueName string
+	SnsQueueName string
 	AwsAccessKey string
 	AwsSecretKey string
 	AwsRegion    string
@@ -23,17 +23,17 @@ type DbConfig struct {
 
 var (
 	DbConf  *DbConfig
-	SqsConf *SqsConfig
+	SnsConf *SqsConfig
 )
 
 func LoadEnv() {
 	dotenv.Load()
 
-	SqsConf = &SqsConfig{
-		SqsQueueName: os.Getenv("SQS_QUEUE_NAME"),
-		AwsAccessKey: os.Getenv("SQS_ACCESS_KEY"),
-		AwsSecretKey: os.Getenv("SQS_SECRET_KEY"),
-		AwsRegion:    os.Getenv("SQS_REGION"),
+	SnsConf = &SqsConfig{
+		SnsQueueName: os.Getenv("SNS_QUEUE_NAME"),
+		AwsAccessKey: os.Getenv("SNS_ACCESS_KEY"),
+		AwsSecretKey: os.Getenv("SNS_SECRET_KEY"),
+		AwsRegion:    os.Getenv("SNS_REGION"),
 	}
 
 	DbConf = &DbConfig{

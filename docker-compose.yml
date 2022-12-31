@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  adegas-db:
+    container_name: canabrava-shop-adegas-db
+    image: postgres
+    ports:
+      - 54322:5432
+
+    environment:
+      - POSTGRES_USER=canabrava-shop-adg
+      - POSTGRES_PASSWORD=canabrava#adg
+
+    networks:
+      - canabrava-shop-net
+
+
+  produtos-db:
+    container_name: canabrava-shop-produtos-db
+    image: postgres
+    ports:
+      - 54332:5432
+
+    environment:
+      - POSTGRES_USER=canabrava-shop-produtos
+      - POSTGRES_PASSWORD=canabrava#produtos
+
+    networks:
+      - canabrava-shop-net
+
+
+  pg-admin:
+    container_name: canabrava-shop-pgadmin
+    image: dpage/pgadmin4:latest
+
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@example.com
+      - PGADMIN_DEFAULT_PASSWORD=admin1234
+
+    ports:
+      - 28080:80
+
+
+    networks:
+      - canabrava-shop-net
+
+    
+
+networks:
+  canabrava-shop-net:
